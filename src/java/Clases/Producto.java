@@ -13,7 +13,7 @@ public class Producto {
     
     private int codigo;
     private String nombre;
-    private int precio;
+    private double precio;
     private int existencia;
     private int marca;
     private int categoria;
@@ -25,7 +25,7 @@ public class Producto {
     
     /*---------------------------------- CONSTRUCTOR PERSONALIZADO ----------------------------------*/
     
-    public Producto(int codigo, String nombre, int precio, int existencia, int marca, int categoria){
+    public Producto(int codigo, String nombre, double precio, int existencia, int marca, int categoria){
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -52,7 +52,7 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 

@@ -46,7 +46,7 @@ public class NewServlet extends HttpServlet {
                 producto = new Producto(
                 Integer.parseInt(request.getParameter("codigo")),
                 request.getParameter("nombre"),
-                Integer.parseInt(request.getParameter("precio")),
+                Double.parseDouble(request.getParameter("precio")),
                 Integer.parseInt(request.getParameter("existencia")),
                 Integer.parseInt(request.getParameter("marca")), 
                 Integer.parseInt(request.getParameter("categoria"))); 

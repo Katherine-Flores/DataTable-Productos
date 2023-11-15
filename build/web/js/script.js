@@ -64,7 +64,7 @@ function eliminarProducto(codigo){
     formData.append('codigo_producto', codigo);
     formData.append('control', 'ELIMINAR');
     XHR.send(formData); 
-    
+    //limpiarTabla();
 }
 
 function mostrarProductos(){

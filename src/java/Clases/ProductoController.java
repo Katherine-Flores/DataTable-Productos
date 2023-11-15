@@ -35,7 +35,7 @@ public class ProductoController {
             statement = conexion.prepareStatement(sql); 
             statement.setInt(1, producto.getCodigo());
             statement.setString(2, producto.getNombre());
-            statement.setInt(3, producto.getPrecio());
+            statement.setDouble(3, producto.getPrecio());
             statement.setInt(4, producto.getExistencia());
             statement.setInt(5, producto.getMarca());
             statement.setInt(6, producto.getCategoria());
