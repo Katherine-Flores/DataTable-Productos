@@ -13,6 +13,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -36,30 +39,35 @@ public class NewServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        try ( PrintWriter respuesta = response.getWriter()) {    
+        try ( PrintWriter respuesta = response.getWriter()) { 
             respuesta.write("");
             registroProducto = new ProductoController();
             String control = request.getParameter("control");
-            StringBuffer objetoRespuesta = new StringBuffer();
             if(control.toUpperCase().equals("GUARDAR")){
+                String fechaInput = request.getParameter("fecha");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                Date fechaVencimiento = null;
+
+                try {
+                    fechaVencimiento = dateFormat.parse(fechaInput);
+                } catch (ParseException e) {
+                    // Manejar errores de formato de fecha
+                }
             //se crea el objeto producto con los datos recibidos del navegador a traves de la petición HTTP
                 producto = new Producto(
                 Integer.parseInt(request.getParameter("codigo")),
                 request.getParameter("nombre"),
                 Double.parseDouble(request.getParameter("precio")),
                 Integer.parseInt(request.getParameter("existencia")),
+                        fechaVencimiento,
                 Integer.parseInt(request.getParameter("marca")), 
                 Integer.parseInt(request.getParameter("categoria"))); 
                 registroProducto.guardarProducto(producto);//almacenarlo en BD             
             }else if(control.toUpperCase().equals("ELIMINAR")){
                 int codigoEliminar= Integer.parseInt(request.getParameter("codigo_producto"));
                 registroProducto.eliminarProducto(codigoEliminar);
-            }
-                  
-            registroProducto.getProductos(objetoRespuesta);//consultar alumnos en la BD
-            respuesta.write(objetoRespuesta.toString());             
-                      
-            
+            }           
+                         
         }
     }
 

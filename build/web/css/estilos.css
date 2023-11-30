@@ -1,0 +1,462 @@
+:root{
+    --color-fondo: #545195;
+    --color-primario: #F4F3F8;
+    --color-secundario: #6E6F83;
+
+    --color-texto: rgb(0,0,0);
+    --color-boton: rgb(0,0,0);
+    --color-boton-texto: rgb(255,255,255);
+    --color-menu-hover: rgb(236,236,236);
+    --color-menu-hover-texto: rgb(36,39,54);
+
+    --color-linea: rgb(180,180,180);
+    --color-base: rgb(201,202,206);
+    --color-circulo: rgb(241,241,241);
+
+    --color-gradiente: linear-gradient(150deg, #00dbde 0%, #fc00ff 100%);
+}
+
+.dark-mode{
+    --color-fondo: #2A2F8B;
+    --color-primario: #1F1D2B;
+    --color-secundario: #9DA1A9;
+
+    --color-texto: rgb(255,255,255);
+    --color-boton: rgb(255,255,255);
+    --color-boton-texto: rgb(0,0,0);
+    --color-menu-hover:  rgb(36,39,54);
+    --color-menu-hover-texto:  rgb(236,236,236);
+
+    --color-linea: rgb(90,90,90);
+    --color-base: rgb(39,205,64);
+    --color-circulo: rgb(255,2555,255);
+
+    --color-gradiente: linear-gradient(150deg, #9500ff, #09f, #00ddff);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    background-color: var(--color-fondo);
+}
+
+body::-webkit-scrollbar{
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb{
+    background-color: var(--color-secundario);
+    border-radius: 5px;
+}
+
+body::-webkit-scrollbar-thumb:hover{
+    background-image: var(--color-gradiente);
+}
+
+
+/*=================== MENU ===================*/
+.menu{
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    right: 15px;
+    top: 15px;
+    z-index: 100;
+}
+
+.menu .bx{
+    font-size: 30px;
+}
+
+/*=================== BARRA LATERAL ===================*/
+.barra-lateral{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    background-color: var(--color-primario);
+    transition: all .5s ease;
+    z-index: 50;
+}
+
+.mini-barra-lateral{
+    width: 80px;
+}
+
+/*-------------------- SPAN --------------------*/
+.barra-lateral span{
+    width: 150px;
+    white-space: nowrap;
+    font-size: 1rem;
+    text-align: left;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+
+.barra-lateral span.oculto{
+    opacity: 0;
+    width: 0;
+}
+
+/*-------------------- NOMBRE --------------------*/
+.barra-lateral .nombre-pagina{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.barra-lateral .nombre-pagina #logo{
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.barra-lateral .nombre-pagina span{
+    margin-left: 10px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-texto);
+}
+
+/*-------------------- BOTON --------------------*/
+.barra-lateral .boton{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--color-boton);
+    color: var(--color-boton-texto);
+}
+
+.barra-lateral .boton .bx-plus{
+    width: 50px;
+    font-size: 25px;
+}
+
+/*-------------------- NAV --------------------*/
+.barra-lateral .navegacion{
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar{
+    width: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb{
+    background-color: var(--color-secundario);
+    border-radius: 5px;
+}
+
+.barra-lateral .navegacion::-webkit-scrollbar-thumb:hover{
+    background-image: linear-gradient(150deg, #9500ff, #09f, #00ddff);
+}
+
+.barra-lateral .navegacion li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.barra-lateral .navegacion a{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 10px;
+    color: var(--color-secundario);
+}
+
+.barra-lateral .navegacion .bx{
+    width: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.barra-lateral .navegacion a:hover{
+    background-color: var(--color-menu-hover);
+    color: var(--color-menu-hover-texto);
+}
+
+/*-------------------- LINEA --------------------*/
+.barra-lateral .linea{
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-linea);
+    margin-top: 15px;
+}
+
+/*-------------------- MODO OSCURO --------------------*/
+.barra-lateral .modo-oscuro{
+    width: 100%;
+    border-radius: 10px;
+    display: flex;
+    margin-bottom: 150px;
+}
+
+.barra-lateral .modo-oscuro .info{
+    width: 200px;
+    height: 45px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-secundario);
+    cursor: default;
+}
+
+.barra-lateral .modo-oscuro .bx-moon{
+    width: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.barra-lateral .modo-oscuro .switch{
+    min-width: 50px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.barra-lateral .modo-oscuro .base{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 20px;
+    border-radius: 50px;
+    background-color: var(--color-base);
+}
+
+.barra-lateral .modo-oscuro .circulo{
+    position: absolute;
+    width: 18px;
+    height: 90%;
+    background-color:var(--color-circulo);
+    border-radius: 50%;
+    left: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.barra-lateral .modo-oscuro .circulo.prendido{
+    left: 15px;
+}
+
+/*-------------------- USUARIO --------------------*/
+.barra-lateral .usuario{
+    width: 100%;
+    display: flex;
+}
+
+.barra-lateral .usuario .bxs-user-circle{
+    font-size: 50px;
+    text-align: center;
+}
+
+.barra-lateral .usuario .info-usuario{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-texto);
+    overflow: hidden;
+}
+
+.barra-lateral .usuario .nombre-email{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 5px;
+    cursor: default;
+}
+
+.barra-lateral .usuario .nombre{
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.barra-lateral .usuario .email{
+    font-size: 0.8rem;
+}
+
+.barra-lateral .usuario .bx-dots-vertical-rounded{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+/*=================== MAIN ===================*/
+main{
+    margin-left: 300px;
+    padding: 20px;
+    transition: all 0.5s ease;
+    color: var(--color-texto);
+}
+
+main.min-main{
+    margin-left: 80px;
+}
+
+/*=================== SECCIONES ===================*/
+
+/*=================== INICIO ===================*/
+.inicio{
+    height: 100vh;
+    width: 100%;
+}
+
+.inicio p{
+    padding-left: 5px;
+    max-width: 500px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--color-primario);
+}
+
+.inicio p span:nth-child(1){
+    font-size: 2.5rem;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-weight: bold;
+    background-image: var(--color-gradiente);
+    color: var(--color-texto);
+    border-radius: 25px;
+}
+
+.inicio p span:nth-child(2){
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    font-family: 'Raleway', sans-serif;
+    font-weight: 400;
+}
+
+.inicio picture{
+    max-width: 400px;
+}
+
+.inicio picture img{
+    width: 100%;
+    height: auto;
+}
+
+/*------------------------ ROTAR IMAGEN ------------------------*/
+
+.rotar{
+    transform: scaleX(-1);
+}
+
+#formulario{
+    width: 100%;
+    height: 100vh;
+}
+
+/*=================== FORMULARIO ===================*/
+#form{
+    max-width: 600px;
+    background-color: var(--color-primario);
+    border-radius: 20px;
+    border: solid 2px var(--color-secundario);
+    padding: 20px;
+}
+
+#form h2{
+    width: 100%;
+    font-size: 1.3rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/*---------------------- BOTONES ----------------------*/
+.group-buttons{
+    width: 100%;
+    height: 35px;
+}
+
+.btn-1{
+    border: 0;
+    background-image: var(--color-gradiente);
+    border-radius: 8px;
+    color: #fff;
+    display: flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-1 span{
+    background-color: #111;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: .3s;
+}
+
+.btn-1:hover span{
+    background: none;
+}
+
+.btn-1:active{
+    transform: scale(0.9);
+}
+
+/*=================== RESPONSIVE ===================*/
+@media(max-height: 660px){
+    .barra-lateral .nombre-pagina{
+        margin-bottom: 15px;
+    }
+    .barra-lateral .modo-oscuro{
+        margin-bottom: 13px;
+    }
+}
+
+@media(max-width: 760px){
+    .barra-lateral{
+        position: fixed;
+        left: -350px
+    }
+
+    .max-barra-lateral{
+        left: 0;
+    }
+
+    .menu{
+        display: flex;
+    }
+
+    .menu .bx-x{
+        display: none;
+    }
+
+    main, main.min-main{
+        margin-left: 0;
+    }
+}

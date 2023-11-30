@@ -4,6 +4,8 @@
  */
 package Clases;
 
+import java.util.Date;
+
 /**
  *
  * @author kathe
@@ -15,6 +17,7 @@ public class Producto {
     private String nombre;
     private double precio;
     private int existencia;
+    private Date fecha;
     private int marca;
     private int categoria;
     
@@ -25,11 +28,12 @@ public class Producto {
     
     /*---------------------------------- CONSTRUCTOR PERSONALIZADO ----------------------------------*/
     
-    public Producto(int codigo, String nombre, double precio, int existencia, int marca, int categoria){
+    public Producto(int codigo, String nombre, double precio, int existencia, Date fecha, int marca, int categoria){
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
         this.existencia = existencia;
+        this.fecha = fecha;
         this.marca = marca;
         this.categoria = categoria;
     }
@@ -66,6 +70,14 @@ public class Producto {
 
     public void setExistencia(int existencia) {
         this.existencia = existencia;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
 
     public int getMarca() {

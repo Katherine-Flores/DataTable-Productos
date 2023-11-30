@@ -28,8 +28,8 @@ public class ProductoController {
     }       
     
     public String guardarProducto(Producto producto){        
-        String sql = "INSERT INTO producto(codigo_producto, nombre_producto, precio, existencia, id_marca, id_categoria)";
-             sql += " VALUES(?,?,?,?,?,?)";              
+        String sql = "INSERT INTO producto(codigo_producto, nombre_producto, precio, existencia, fecha_vencimiento, id_marca, id_categoria)";
+             sql += " VALUES(?,?,?,?,?,?,?)";              
        try{     
             abrirConexion();
             statement = conexion.prepareStatement(sql); 
@@ -37,8 +37,9 @@ public class ProductoController {
             statement.setString(2, producto.getNombre());
             statement.setDouble(3, producto.getPrecio());
             statement.setInt(4, producto.getExistencia());
-            statement.setInt(5, producto.getMarca());
-            statement.setInt(6, producto.getCategoria());
+            statement.setDate(5, new java.sql.Date(producto.getFecha().getTime()));
+            statement.setInt(6, producto.getMarca());
+            statement.setInt(7, producto.getCategoria());
                 int resultado = statement.executeUpdate(); 
                 if(resultado > 0){
                     return String.valueOf(resultado);
@@ -51,7 +52,7 @@ public class ProductoController {
     }
     
     public void getProductos(StringBuffer respuesta){   
-        String sql="SELECT producto.codigo_producto, producto.nombre_producto, producto.precio, producto.existencia, marca.descripcion, categoria.descripcion FROM producto, marca, categoria WHERE producto.id_marca = marca.id_marca AND producto.id_categoria = categoria.id_categoria";
+        String sql="SELECT producto.codigo_producto, producto.nombre_producto, producto.precio, producto.existencia,producto.fecha_vencimiento, marca.descripcion, categoria.descripcion FROM producto, marca, categoria WHERE producto.id_marca = marca.id_marca AND producto.id_categoria = categoria.id_categoria";
         try{
         abrirConexion();
         statement= conexion.prepareStatement(sql);                        
@@ -63,6 +64,7 @@ public class ProductoController {
                 respuesta.append("<td >").append(result.getString("nombre_producto")).append("</td>");
                 respuesta.append("<td >").append("Q ").append(result.getString("precio")).append("</td>");
                 respuesta.append("<td >").append(result.getString("existencia")).append("</td>");
+                respuesta.append("<td >").append(result.getString("fecha_vencimiento")).append("</td>");
                 respuesta.append("<td >").append(result.getString("descripcion")).append("</td>");
                 respuesta.append("<td >").append(result.getString("categoria.descripcion")).append("</td>");
                 respuesta.append("<td id=\"").append(result.getString("codigo_producto"))

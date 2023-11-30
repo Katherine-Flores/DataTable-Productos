@@ -38,7 +38,7 @@ function mostrarMensaje(mensaje){
     title: mensaje,
     showConfirmButton: false,
     timer: 1200
-    })
+    });
 }
 
 function eliminarProducto(codigo){
@@ -58,7 +58,7 @@ function eliminarProducto(codigo){
       if (XHR.readyState === XHR.DONE && XHR.status === 200) {
         console.log("response => " + XHR.response);
         mostrarMensaje('Producto Eliminado exitosamente');
-        setTimeout( function() { window.location.reload() }, 2000 );
+        setTimeout( function() { window.location.reload(); }, 2000 );
       }
     };        
     formData.append('codigo_producto', codigo);
@@ -99,3 +99,11 @@ function limpiarTabla(){
    }
 }
 
+function irASeccion(idSeccion) {
+  var seccion = document.getElementById(idSeccion);
+  seccion.scrollIntoView({ behavior: 'smooth' });
+}
+
+function navegar(direccion) {
+    window.location.href = direccion;
+}

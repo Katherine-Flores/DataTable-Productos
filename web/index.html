@@ -5,63 +5,131 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
 -->
 <html>
     <head>
-        <title>Data Table - Productos</title>
-        <link rel="icon" href="img/umg.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="js/script.js"></script>
-        <style>
-            .text{font-size: 20px;}
-        </style>
+        <title>DataTable</title>
+        <link rel="icon" href="img/box2-heart-fill.svg">
+        
+        <!-- Tipografía Raleway y Poppins-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+        
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        
+        <!-- CSS Personalizado -->
+        <link rel="stylesheet" href="css/estilos.css">
+        
+        <!-- Iconos -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     </head>
+    
     <body>
-        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #001C30;">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                <a class="navbar-brand" href="#"><img src="img/comercio-electronico.png" alt="ECOMMERCE" style="height: 85px; width: auto;"></a>
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link text" aria-current="page" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link active text" href="#">Gestiones</a></li>
-                    <li class="nav-item"><a class="nav-link text" href="#">Contacto</a></li>
-                </ul>
-              </div>
+        <div class="menu">
+            <i class='bx bx-menu'></i>
+            <i class='bx bx-x'></i>
+        </div>
+        <div class="barra-lateral">
+            <div>
+                <div class="nombre-pagina">
+                    <img id="logo" src="img/Logo-black.svg" alt="MN">
+                    <span>Company</span>
+                </div>
+                <button class="boton" onclick="irASeccion('formulario')">
+                    <i class='bx bx-plus'></i>
+                    <span>Create new</span>
+                </button>
             </div>
-          </nav>
-        <!--<div>
-            <h1 id="datos">Katherine Nayelhi Flores Figueroa</h1>
-            <h2>0909-22-1883</h2>
-        </div>-->
-        <div class="m-4">
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4">
-                    <h2 class="mb-3">Agregar Producto</h2>
-                    <form class="row g-3 needs-validation" method="POST" id="form" name="form" action="NewServlet" >
-                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="exampleInputName">Código del producto</label>
-                            <input class="form-control" type="text" placeholder="ingresar codigo" name="codigo" id="codigo" >
+            <nav class="navegacion">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <i class='bx bx-search-alt-2'></i>
+                            <span>Buscar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#inicio">
+                            <i class='bx bx-home-alt-2'></i>
+                            <span>Inicio</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Tabla">
+                            <i class='bx bx-table'></i>
+                            <span>Mostrar tabla</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div>
+                <div class="linea"></div>
+                <div class="modo-oscuro">
+                    <div class="info">
+                        <i class='bx bx-moon'></i>
+                        <span>Dark Mode</span>
+                    </div>
+                    <div class="switch">
+                        <div class="base">
+                            <div class="circulo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="usuario">
+                    <i class='bx bxs-user-circle'></i>
+                    <div class="info-usuario">
+                        <div class="nombre-email">
+                            <span class="nombre">Katherine</span>
+                            <span class="email">kflores@miumg.edu.gt</span>
+                        </div>
+                        <i class='bx bx-dots-vertical-rounded'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <main>
+            <section class="inicio container d-flex justify-content-center align-items-center" id="inicio">
+                <div class="slogan">
+                    <p>Gestiona tu inventario como un 
+                        <span>profesional</span>
+                        <span>simplifica, organiza y crece sin límites.</span>
+                    </p>
+                </div>
+                <picture>
+                    <img src="img/comercio-electronico.png" alt="" class="rotar">
+                </picture>
+            </section>
+            
+            <section class="formulario container-sm d-flex justify-content-center" id="formulario">
+                <div class="d-flex align-items-center">
+                    <form class="row needs-validation" method="POST" id="form" name="form" action="#">
+                        <h2>Agregar Producto</h2>
+                        <div class="form-group col-12 mb-2">
+                            <label class="mb-1" for="codigo">Código del producto</label>
+                            <input class="form-control" type="text" placeholder="ingresar codigo del producto" name="codigo" id="codigo" required>
                             <input type="hidden" id="control" name="control" value="GUARDAR">
                         </div>
-                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label for="exampleInputName">Nombre del producto</label>
-                            <input class="form-control" type="text" placeholder="ingresar nombre" name="nombre" id="nombre" >
+                        <div class="form-group col-12 mb-2">
+                            <label class="mb-1" for="nombre">Nombre del producto</label>
+                            <input class="form-control" type="text" placeholder="ingresar el nombre del producto" name="nombre" id="nombre" >
                         </div>
-                        <div class="form-group col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="exampleInputName">Precio</label>
-                            <input type="number" class="form-control"  name="precio" id="precio">
+                        <div class="form-group col-sm-12 col-md-7 col-lg-7 col-xl-7 mb-2">
+                            <label class="mb-1" for="precio">Precio</label>
+                            <input class="form-control" type="number"  name="precio" id="precio">
                         </div>
-                        <div class="form-group col-sm-12 col-md-6 col-lg-6 col-xl-6">
-                            <label for="exampleInputName">Cantidades</label>
-                            <input type="number" class="form-control"  name="existencia" id="existencia"  >
+                        <div class="form-group col-sm-12 col-md-5 col-lg-5 col-xl-5 mb-2">
+                            <label class="mb-1" for="existencia">Cantidades</label>
+                            <input class="form-control" type="number"  name="existencia" id="existencia"  >
                         </div>
-                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label>Marca</label>
+                        <div class="form-group col-12 mb-2">
+                            <label class="mb-1" for="exampleInputName">Fecha de Vencimiento</label>
+                            <input class="form-control" type="date" name="fecha" id="fecha"  >
+                        </div>
+                        <div class="form-group col-12 mb-2">
+                            <label class="mb-1">Marca</label>
                             <select class="form-control" name="marca" id="marca">
                                 <option value="">SELECCIONAR MARCA DEL PRODUCTO</option>
                                 <option value="1">ARGOM</option>
@@ -75,8 +143,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 <option value="9">DELL</option>
                             </select>
                         </div>
-                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <label>Categoria</label>
+                        <div class="form-group col-12 mb-3">
+                            <label class="mb-1">Categoria</label>
                             <select class="form-control" name="categoria" id="categoria">
                                 <option value="">SELECCIONAR CATEGORIA DEL PRODUCTO</option>
                                 <option value="1">PERIFERICO</option>
@@ -85,32 +153,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                                 <option value="4">DEPORTE</option>
                             </select>
                         </div>
-                        <div class="form-group col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                            <button type="button" onclick="enviarFormulario()" class="btn btn-success">Agregar</button>
-                            <button type="button" onclick="limpiarTabla()" class="btn btn-danger">Cancelar</button>
-                            <button type="button" onclick="mostrarProductos()" class="btn btn-primary">Mostrar</button>
+                        <div class="group-buttons d-flex align-items-center justify-content-around">
+                            <button class="btn-1" type="button" onclick="enviarFormulario()">
+                                <span>Agregar</span>
+                            </button>
+                            <button class="btn btn-danger" type="button" onclick="limpiarFormulario()">Cancelar</button>
                         </div>
                     </form>
                 </div>
-                <div class="col-sm-12 col-me-8s col-lg-8 col-xl-8">
-                    <h2>Productos Registrados</h2>
-                    <table class="table table-striped table-hover" id="tabla1">
-                        <thead class="table-dark text-center">
-                            <tr>
-                                <th class="align-middle">Código</th>
-                                <th class="align-middle">Nombre</th>
-                                <th class="align-middle">Precio</th>
-                                <th class="align-middle">Cant. En Existencia</th>
-                                <th class="align-middle">Marca</th>
-                                <th class="align-middle">Categoria</th>
-                                <th class="align-middle">Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-center" id="bodyTable">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+            </section>
+        </main>
+        
+        <script src="js/barra-lateral.js"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>
