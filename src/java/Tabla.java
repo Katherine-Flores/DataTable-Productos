@@ -118,10 +118,10 @@ public class Tabla extends HttpServlet {
                                 </div>""");
             out.println("<main>");
             out.println("""
-                           <div class="col-sm-12 col-me-12 col-lg-12 col-xl-12">
-                               <h2>Productos Registrados</h2>
-                               <table class="table table-striped table-hover" id="tabla1">
-                                   <thead class="table-dark text-center">
+                        <h2 class="text-center">Productos Registrados</h2>
+                           <div class="col-sm-12 col-me-12 col-lg-12 col-xl-12 table-responsive">
+                               <table class="table table-dark table-bordered table-hover" id="tabla1">
+                                   <thead class="thead-dark text-center">
                                        <tr>
                                            <th class="align-middle">C\u00f3digo</th>
                                            <th class="align-middle">Nombre</th>

@@ -332,6 +332,8 @@ main.min-main{
 .inicio{
     height: 100vh;
     width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .inicio p{
@@ -374,15 +376,15 @@ main.min-main{
     transform: scaleX(-1);
 }
 
+/*=================== FORMULARIO ===================*/
 #formulario{
     width: 100%;
     height: 100vh;
 }
 
-/*=================== FORMULARIO ===================*/
 #form{
     max-width: 600px;
-    background-color: var(--color-primario);
+    background-color: var(--color-menu-hover);
     border-radius: 20px;
     border: solid 2px var(--color-secundario);
     padding: 20px;
@@ -402,6 +404,7 @@ main.min-main{
 }
 
 .btn-1{
+    width: 150px;
     border: 0;
     background-image: var(--color-gradiente);
     border-radius: 8px;
@@ -414,6 +417,7 @@ main.min-main{
 }
 
 .btn-1 span{
+    width: 150px;
     background-color: #111;
     padding: 6px 10px;
     border-radius: 6px;
@@ -458,5 +462,26 @@ main.min-main{
 
     main, main.min-main{
         margin-left: 0;
+    }
+    
+    .inicio{
+        flex-direction: column;
+    }
+    
+    .inicio p{
+        font-size: 1.8rem;
+    }
+
+    .inicio p span:nth-child(1){
+        font-size: 2.3rem;
+    }
+
+    .inicio p span:nth-child(2){
+        font-size: 1.3rem;
+    }
+    
+    .btn-1, 
+    .btn-1 span{
+        width: 100px;
     }
 }

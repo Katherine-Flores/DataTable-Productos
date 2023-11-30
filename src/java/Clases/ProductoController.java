@@ -71,7 +71,7 @@ public class ProductoController {
                         .append("\"  onclick=\"eliminarProducto(this.id);\">")
                         .append(" <a class=\"btn btn-warning\"'><i class=\"fas fa-edit\"></i>  </a>"
                                 +" <a class=\"btn btn-danger\"'> <i class=\"fas fa-trash-alt\"></i> </a>"
-                                + " <td></tr>");
+                                + " </td></tr>");
                 }
             }else{
                 respuesta.append("error al consultar");
